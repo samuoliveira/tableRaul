@@ -1,46 +1,91 @@
-import { Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import { DesiredQuantity } from "../DesiredQuantity";
+import { InitTxt } from "../InitTxt";
+import { InsumoPurchase } from "../InsumoPurchase";
+import { InsumoTxt } from "../InsumoTxt";
+import { SupplierAmbev } from "../SupplierAmbev";
 
 export function FirstTable() {
+  const scrollbarStyle = {
+    "&::-webkit-scrollbar": {
+      width: "6px",
+      height: "6px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      bg: "gray.400",
+      borderRadius: "8px",
+      backgroundColor: "#122046",
+    },
+    "&::-webkit-scrollbar-track": {
+      bg: "#D9D9D9",
+    },
+  };
   return (
-    <Table w={"100%"} size={"lg"}>
-      <Thead bg="#E0E0E0">
-        <Th color="black">INSUMO</Th>
-        <Th color="black">UNIDADE DE MEDIDA</Th>
-        <Th>QUANTIDADE DESEJADA</Th>
-        <Th color="black">INSUMO DE COMPRA</Th>
-      </Thead>
-      <Tbody flexDir={"column"}>
-        <Tr
-          cursor={"pointer"}
-          _hover={{
-            opacity: 1,
-            backgroundColor: "#f3f3f3",
-          }}
-          flexDir={"column"}
-        >
-          <Td>
-            1344 - ARRUELA MOEDOR DE CARNE <b />
-            CELERON CARACOL CAF 22-98
-          </Td>
-          <Td>zzzz</Td>
+    <Flex flexDir={"row"} overflowX={"auto"} sx={scrollbarStyle} w={"100%"}>
+      <Flex flexDir={"column"} bg={"red"}>
+        <Flex flexDir={"row"}>
+          <Box
+            bg={"#D9D9D9"}
+            display={"flex"}
+            paddingY={"12px"}
+            w={"40%"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Text fontWeight={"bold"} fontSize={"16px"}>
+              INSUMO
+            </Text>
+          </Box>
+          <Box h={"100%"} bg={"black"} w={"1px"} />
 
-          <Td colSpan={2} color="black" fontWeight="normal" fontSize="14px">
-            ooooo
-          </Td>
-        </Tr>
-        <Tr
-          cursor={"pointer"}
-          _hover={{
-            opacity: 1,
-            backgroundColor: "#f3f3f3",
-          }}
-          flexDir={"column"}
-        >
-          <Td colSpan={3} color="black" fontWeight="normal" fontSize="14px">
-            bbb
-          </Td>
-        </Tr>
-      </Tbody>
-    </Table>
+          <Box
+            bg={"#D9D9D9"}
+            display={"flex"}
+            paddingY={"12px"}
+            w={"16%"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Text fontWeight={"bold"} fontSize={"16px"} marginLeft={"16px"}>
+              UNIDADE DE MEDIDA
+            </Text>
+          </Box>
+          <Box h={"100%"} bg={"black"} w={"1px"} />
+          <Box
+            bg={"#D9D9D9"}
+            display={"flex"}
+            paddingY={"12px"}
+            w={"16%"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Text fontWeight={"bold"} fontSize={"16px"} marginLeft={"16px"}>
+              QUANTIDADE DESEJADA
+            </Text>
+          </Box>
+          <Box h={"100%"} bg={"black"} w={"1px"} />
+          <Box
+            bg={"#D9D9D9"}
+            display={"flex"}
+            paddingY={"12px"}
+            w={"30%"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Text fontWeight={"bold"} fontSize={"16px"}>
+              INSUMO DE <b /> COMPRA
+            </Text>
+          </Box>
+        </Flex>
+        <Box w={"100%"} bg={"#bdbdbd"} height={"1px"} />
+        <Flex w={"100%"}>
+          <InsumoTxt />
+          <InitTxt />
+          <DesiredQuantity />
+          <InsumoPurchase />
+        </Flex>
+      </Flex>
+      <SupplierAmbev />
+    </Flex>
   );
 }

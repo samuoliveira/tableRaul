@@ -24,7 +24,9 @@ export function TableComponent() {
       width={"100%"}
       bg={"white"}
       height={"100%"}
-      padding={10}
+      overflowX={"auto"}
+      maxWidth={"70rem"}
+      sx={scrollbarStyle}
     >
       <FirstTable />
     </Flex>
