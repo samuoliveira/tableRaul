@@ -4,6 +4,7 @@ import { DATA, PropsData } from "../FirstTable";
 type Props = {
   item: PropsData;
 };
+
 export function ValuesUnitTotal({ item }: Props) {
   return (
     <Flex flexDir={"column"}>
