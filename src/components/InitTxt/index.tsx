@@ -2,7 +2,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 
 export function InitTxt() {
   return (
-    <Flex width={"20%"} flexDir={"row"}>
+    <Flex width={"16%"} flexDir={"row"}>
       <Flex flexDir={"column"} w={"100%"}>
         <Box
           display={"flex"}

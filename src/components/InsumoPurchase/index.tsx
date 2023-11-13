@@ -2,8 +2,8 @@ import { Box, Flex, Select } from "@chakra-ui/react";
 
 export function InsumoPurchase() {
   return (
-    <Flex width={"19rem"} flexDir={"row"}>
-      <Flex flexDir={"column"} w={"100%"}>
+    <Flex width={"14rem"} flexDir={"row"}>
+      <Flex flexDir={"column"} w={"14rem"}>
         <Box
           display={"flex"}
           bg={"#F2F2F2"}
@@ -81,10 +81,10 @@ export function InsumoPurchase() {
             <option value="option1">Option 1</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
-          </Select>{" "}
+          </Select>
         </Box>
       </Flex>
-      <Box h={"100%"} bg={"black"} w={"1px"} />
+      <Box h={"18rem"} bg={"black"} w={"1px"} />
     </Flex>
   );
 }

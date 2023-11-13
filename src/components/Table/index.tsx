@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import { FirstTable } from "../FirstTable";
 
-export function TableComponent() {
+export function Table() {
   const scrollbarStyle = {
     "&::-webkit-scrollbar": {
       width: "6px",

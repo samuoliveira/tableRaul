@@ -2,7 +2,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 
 export function InsumoTxt() {
   return (
-    <Flex w={"50%"}>
+    <Flex w={"33rem"}>
       <Flex flexDir={"column"} w={"100%"}>
         <Box
           display={"flex"}

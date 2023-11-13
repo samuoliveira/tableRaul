@@ -1,4 +1,4 @@
-import { TableComponent } from "@/components/Table";
+import { Table } from "@/components/Table";
 import { Flex } from "@chakra-ui/react";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       justifyContent={"center"}
       bg={"#dadada"}
     >
-      <TableComponent />
+      <Table />
     </Flex>
   );
 }
