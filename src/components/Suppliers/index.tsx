@@ -1,12 +1,13 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { PropsData } from "../FirstTable";
+import { PropsDataFornecedor } from "../FirstTable";
 import { ValuesUnitTotal } from "../ValuesUnitTotal";
 
 type Props = {
-  item: PropsData;
+  item: PropsDataFornecedor;
+  index: number;
 };
 
-export function Suppliers({ item }: Props) {
+export function Suppliers({ item, index }: Props) {
   return (
     <Flex flexDir={"column"} borderWidth={1} borderRadius={10}>
       <Flex flexDir={"row"}>
@@ -22,7 +23,7 @@ export function Suppliers({ item }: Props) {
             paddingY={"4px"}
           >
             <Text fontWeight={"bold"} fontSize={"16px"}>
-              FORNECEDOR 1
+              FORNECEDOR {index + 1}
             </Text>
             <Text fontWeight={"bold"} fontSize={"16px"} marginBottom={"22px"}>
               {item.name}

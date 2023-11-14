@@ -1,21 +1,29 @@
+"use client";
+
 import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
-import { DATA, PropsData } from "../FirstTable";
+import { DATA, PropsDataFornecedor } from "../FirstTable";
 
 type Props = {
-  item: PropsData;
+  item: PropsDataFornecedor;
 };
 
 export function ValuesUnitTotal({ item }: Props) {
+  // const [totalValue, setTotalValue] = useState(0);
+
+  // useEffect(() => {
+  //   setTotalValue(count * item.valuesUnit);
+  // }, [count, item.valuesUnit]);
+
   return (
     <Flex flexDir={"column"}>
-      {DATA.map((item) => (
+      {DATA.map((product) => (
         <Flex key={item.id} flexDir={"column"}>
           <Flex width={"100%"} flexDir={"row"}>
             <Flex width={"54%"} flexDir={"row"}>
               <Flex flexDir={"column"} w={"100%"}>
                 <Box
                   display={"flex"}
-                  bg={item.bgTable}
+                  // bg={product.bgTable}
                   paddingY={"24px"}
                   w={"100%"}
                   justifyContent={"center"}
@@ -25,7 +33,7 @@ export function ValuesUnitTotal({ item }: Props) {
                     w={"40%"}
                     h={"24px"}
                     borderColor={"#003366"}
-                    value={item.valuesUnit}
+                    value={product.valuesUnit}
                   />
                 </Box>
               </Flex>
@@ -35,13 +43,22 @@ export function ValuesUnitTotal({ item }: Props) {
               <Flex flexDir={"column"} w={"100%"}>
                 <Box
                   display={"flex"}
-                  bg={item.bgTable}
+                  // bg={item.bgTable}
                   paddingY={"24px"}
                   w={"100%"}
                   justifyContent={"center"}
                   alignItems={"center"}
                 >
-                  <Input w={"40%"} h={"24px"} borderColor={"#003366"} />
+                  <Input
+                    value={
+                      product?.count
+                        ? product.valuesUnit * product?.count
+                        : product.valuesUnit
+                    }
+                    w={"40%"}
+                    h={"24px"}
+                    borderColor={"#003366"}
+                  />
                 </Box>
               </Flex>
               <Box h={"100%"} bg={"black"} w={"1px"} />

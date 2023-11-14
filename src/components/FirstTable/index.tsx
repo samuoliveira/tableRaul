@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { DesiredQuantity } from "../DesiredQuantity";
 import { InitTxt } from "../InitTxt";
@@ -13,39 +15,48 @@ export type InputData = {
 export type PropsData = {
   id: string;
   name: string;
-  valuesDesired: string | number;
-  valuesUnit: string | number;
+  product: string;
+  measurement: string;
+  valuesUnit: number;
   bgTable: "#F2F2F2" | "#FFF";
+  count?: number;
+};
+
+export type PropsDataFornecedor = {
+  id: string;
+  name: string;
+  valuesUnit: number;
 };
 
 export const DATA: PropsData[] = [
   {
     id: "1",
     name: "Ambev",
-    valuesDesired: 12,
+    product: "1324 - BOBINA TERMICA DE PDV KPR PALHA 80X30 UN",
+    measurement: "KG",
     bgTable: "#F2F2F2",
     valuesUnit: 23,
   },
   {
     id: "2",
     name: "Macro Contabilidade",
-    valuesDesired: 12,
+    product: "1325 - BOBINA TERMICA DE PDV KPR PALHA 80X30 UN",
+    measurement: "L",
     bgTable: "#FFF",
     valuesUnit: 10,
   },
+];
+
+export const DATAFORNECEDOR: PropsDataFornecedor[] = [
   {
-    id: "3",
-    name: "Blue Me",
-    valuesDesired: 12,
-    bgTable: "#F2F2F2",
-    valuesUnit: 3,
+    id: "1",
+    name: "Ambev",
+    valuesUnit: 23,
   },
   {
-    id: "4",
-    name: "Kingfoods",
-    valuesDesired: 12,
-    bgTable: "#FFF",
-    valuesUnit: 23,
+    id: "2",
+    name: "Macro Contabilidade",
+    valuesUnit: 10,
   },
 ];
 
@@ -64,21 +75,16 @@ export function FirstTable() {
       bg: "#D9D9D9",
     },
   };
+
   return (
-    <Flex
-      gap={50}
-      flexDir={"row"}
-      overflowX={"scroll"}
-      sx={scrollbarStyle}
-      w={"100%"}
-    >
-      <Flex flexDir={"column"} marginTop={78}>
+    <Flex flexDir={"row"} overflowX={"scroll"} sx={scrollbarStyle} w={"100%"}>
+      <Flex flexDir={"column"} marginTop={79}>
         <Flex flexDir={"row"}>
           <Box
             bg={"#D9D9D9"}
             display={"flex"}
             paddingY={"12px"}
-            w={"48%"}
+            w={"40%"}
             justifyContent={"center"}
             alignItems={"center"}
           >
@@ -92,7 +98,7 @@ export function FirstTable() {
             bg={"#D9D9D9"}
             display={"flex"}
             paddingY={"12px"}
-            w={"14%"}
+            w={"17%"}
             justifyContent={"center"}
             alignItems={"center"}
           >
@@ -104,7 +110,7 @@ export function FirstTable() {
           <Box
             bg={"#D9D9D9"}
             display={"flex"}
-            w={"14%"}
+            w={"18%"}
             justifyContent={"center"}
             alignItems={"center"}
           >
@@ -116,7 +122,7 @@ export function FirstTable() {
           <Box
             bg={"#D9D9D9"}
             display={"flex"}
-            w={"24%"}
+            w={"26%"}
             justifyContent={"center"}
             alignItems={"center"}
           >
@@ -124,22 +130,24 @@ export function FirstTable() {
               INSUMO DE COMPRA
             </Text>
           </Box>
-          <Box h={"100%"} bg={"black"} w={"1px"} />
+          {/* <Box h={"100%"} bg={"black"} w={"1px"} /> */}
         </Flex>
-        <Box w={"100%"} bg={"#bdbdbd"} height={"1px"} />
-        <Flex w={"100%"}>
-          <InsumoTxt />
-          <InitTxt />
-          <Flex flexDir={"column"} w={"14%"}>
-            {DATA.map((item) => (
-              <Flex key={item.id} flexDir={"column"}>
+
+        {DATA.map((item) => (
+          <Flex w={"100%"} key={item.id} height={"72px"}>
+            <InsumoTxt item={item.product} />
+            <InitTxt item={item.measurement} />
+            <Flex flexDir={"column"} w={"100%"} alignItems={"center"}>
+              <Flex flexDir={"column"}>
                 <DesiredQuantity item={item} />
               </Flex>
-            ))}
+            </Flex>
+            {/* <Box bg={"black"} w={"1px"} /> */}
+
+            <InsumoPurchase />
           </Flex>
-          <Box h={"100%"} bg={"black"} w={"1px"} />
-          <InsumoPurchase />
-        </Flex>
+        ))}
+
         <Box
           flexDir={"column"}
           display={"flex"}
@@ -150,17 +158,18 @@ export function FirstTable() {
           justifyContent={"center"}
         ></Box>
       </Flex>
+
       <Box
         display={"flex"}
         flexDir={"row"}
         // Altere a cor conforme necessário
         position={"relative"} // Necessário para o posicionamento absoluto
-        left={"-50px"} // Ajuste conforme necessário para a sobreposição
+        // left={"-50px"} // Ajuste conforme necessário para a sobreposição
         zIndex={1} // Certifica-se de que a segunda tabela sobreponha a primeira
       >
-        {DATA.map((item) => (
+        {DATAFORNECEDOR.map((item, index) => (
           <Box key={item.id} flexDir={"row"} display={"flex"}>
-            <Suppliers item={item} />
+            <Suppliers item={item} index={index} />
           </Box>
         ))}
       </Box>

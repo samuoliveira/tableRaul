@@ -1,9 +1,13 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 
-export function InitTxt() {
+type Props = {
+  item: string;
+};
+
+export function InitTxt({ item }: Props) {
   return (
-    <Flex width={"16%"} flexDir={"row"}>
-      <Flex flexDir={"column"} w={"100%"}>
+    <Flex width={"100%"} flexDir={"row"}>
+      <Flex flexDir={"column"} w={"8rem"}>
         <Box
           display={"flex"}
           bg={"#F2F2F2"}
@@ -12,43 +16,10 @@ export function InitTxt() {
           justifyContent={"center"}
           alignItems={"center"}
         >
-          <Text fontSize={"16px"}>KG </Text>
-        </Box>
-
-        <Box
-          display={"flex"}
-          bg={"#fff"}
-          paddingY={"24px"}
-          w={"100%"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          <Text fontSize={"16px"}>KG </Text>
-        </Box>
-
-        <Box
-          display={"flex"}
-          bg={"#F2F2F2"}
-          paddingY={"24px"}
-          w={"100%"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          <Text fontSize={"16px"}>KG </Text>
-        </Box>
-
-        <Box
-          display={"flex"}
-          bg={"#fff"}
-          paddingY={"24px"}
-          w={"100%"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
-          <Text fontSize={"16px"}>KG</Text>
+          <Text fontSize={"16px"}>{item}</Text>
         </Box>
       </Flex>
-      <Box h={"100%"} bg={"black"} w={"1px"} />
+      <Box bg={"black"} w={"1px"} />
     </Flex>
   );
 }
